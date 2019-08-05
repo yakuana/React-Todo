@@ -94,9 +94,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h1>Todo List</h1>
+      <div className="app-container">
+        <div id="todo-heading-container">
+          <h1 id="todo-heading">Todo List</h1>
         </div>
         <TodoList 
           todoList={this.state.todoList}
