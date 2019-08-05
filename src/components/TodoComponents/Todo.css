@@ -2,3 +2,59 @@
     text-decoration: line-through; 
 }
 
+.app-container {
+    /* border: 1px solid red;  */
+    width: 70%; 
+    margin: 0 auto; 
+}
+
+.buttons {
+    /* border: 1px solid red; */
+    width: 16vw; 
+    display: flex; 
+    justify-content: space-evenly;
+}
+
+.todo-list-container {
+    /* border: 1px solid rgb(35, 35, 159); */
+    text-align: center; 
+    font-size: 3vh; 
+}
+
+.todo-form-container {
+    /* border: 1px solid rgb(35, 35, 159); */
+    height: 4vh; 
+    margin-top: 80px; 
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: center;
+}
+
+#todo-heading-container {
+    border-bottom: 3px dashed black;
+    background: rgb(142, 196, 230);
+    text-align: center;
+    padding-top: 10px; 
+}
+
+#todo-heading {
+    /* border: 1px solid powderblue;  */
+    font-size: 3rem; 
+}
+
+#add {
+    font-size: 1.3rem; 
+    border-radius: 10px; 
+}
+
+#clear {
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+#input {
+    width: 30vw; 
+    font-size: 1.4rem; 
+}
+
+

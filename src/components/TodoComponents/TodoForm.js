@@ -30,19 +30,25 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitItem}>
+      <form onSubmit={this.submitItem} className="todo-form-container">
         <input
           type="text"
           value={this.state.item}
           name="item"
           onChange={this.handleChanges}
+          id="input"
+          placeholder=" ...todo"
         />
-        <button>Add</button>
 
-        {/* clearItems function removes items that have been completed  */}  
-        <button onClick={this.props.clearItems}>
-            Clear Completed 
-        </button>
+        <div className="buttons">
+          <button id="add">Add</button>
+
+          {/* clearItems function removes items that have been completed  */}  
+          <button onClick={this.props.clearItems} id="clear">
+              Clear Completed 
+          </button>
+        </div>
+        
       </form>
     );
   }

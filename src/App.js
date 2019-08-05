@@ -3,9 +3,7 @@ import "./components/TodoComponents/Todo.css"
 import TodoList from "./components/TodoComponents/TodoList.js";
 import TodoForm from "./components/TodoComponents/TodoForm.js";
 
-
-
-// starter todo array 
+// given todo array 
 const todoArray = [
   {
     task: 'Organize Garage',
