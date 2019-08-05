@@ -16,6 +16,7 @@ class TodoForm extends React.Component {
 
   handleChanges = event => {
     // updates state using event changes 
+
     this.setState({
       // sets item equal to the name of the task and the value of the task 
       [event.target.name]: event.target.value
@@ -25,6 +26,7 @@ class TodoForm extends React.Component {
   submitItem = event => {
     // allows tasks to be added 
     event.preventDefault();
+
     this.props.addItem(this.state.item);
   };
 
@@ -36,15 +38,20 @@ class TodoForm extends React.Component {
           value={this.state.item}
           name="item"
           onChange={this.handleChanges}
-          id="input"
+          className="input"
           placeholder=" ...todo"
         />
 
         <div className="buttons">
           <button id="add">Add</button>
 
-          {/* clearItems function removes items that have been completed  */}  
-          <button onClick={this.props.clearItems} id="clear">
+          {/* filterItems function displays items that match the search word   */}
+          <button onClick={() => {console.log("state at click:", this.state.item); return this.props.filterItems(this.state.item)}} id="add">
+              Search
+          </button>
+
+          {/* clearItems function removes items that have been completed    */}
+          <button onClick={this.props.clearItems}  id="clear">
               Clear Completed 
           </button>
         </div>

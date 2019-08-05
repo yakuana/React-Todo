@@ -90,6 +90,23 @@ class App extends React.Component {
     })
   }
 
+  // remove the items that have been completed 
+  filterItems = (task) => {
+
+     // set the state of the item that matches the id 
+     this.setState({
+      
+      // map over todoList (an array of objects)
+      todoList: this.state.todoList.filter(item => {
+
+        console.log("item task and task:", item.task, task)
+        
+        return item.task.includes(task)
+
+      })
+    });
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -99,10 +116,12 @@ class App extends React.Component {
         <TodoList 
           todoList={this.state.todoList}
           toggleItem={this.toggleItem}
+          clearItems={this.clearItems}
         />
         <TodoForm
          addItem={this.addItem}
-         clearItems={this.clearItems} />
+         filterItems={this.filterItems} 
+         />
       </div>
     );
   }
