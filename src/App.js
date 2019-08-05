@@ -1,5 +1,9 @@
-import React from 'react';
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList"
+import TodoForm from "./components/TodoComponents/TodoForm"
 
+
+// starter todo array 
 const todoArray = [
   {
     task: 'Organize Garage',
@@ -14,13 +18,13 @@ const todoArray = [
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  // parent component 
 
   constructor() {
+    // inherit properties from React.Component 
     super(); 
 
+    // set initial state 
     this.state = {
       todoList: todoArray,
     }
@@ -44,8 +48,6 @@ class App extends React.Component {
 
   // toggle complete/incomplete on a given item 
   toggleItem = (id) => {
-
-    console.log("item id:", id);
     
     // set the state of the item that matches the id 
     this.setState({
@@ -53,14 +55,18 @@ class App extends React.Component {
       // map over todoList (an array of objects)
       todoList: this.state.todoList.map(item => {
 
-        console.log("item object:", item)
+        console.log("item object id and toggled id:", item.id, id)
 
         if (item.id === id) {
           // the id's match 
+          
+          // return the item object with all of the properties it had before but change the
+          // completed key's value to true/false 
           return {
             ...item,
             completed: !item.completed
           };
+
         } else {
           // the id's do not match 
           return item;
@@ -71,6 +77,7 @@ class App extends React.Component {
 
   // remove the items that have been completed 
   clearItems = () => {
+
     this.setState({
       // map over todoList (an array of objects)
       todoList: this.state.todoList.filter(item => {
@@ -86,7 +93,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <div>
+          <h1>Todo List</h1>
+        </div>
+        <TodoList 
+          todoList={this.state.todoList}
+          toggleItem={this.toggleItem}
+          clearItems={this.clearItems}
+        />
+        <TodoForm
+         addItem={this.addItem}
+         clearItems={this.clearItems} />
       </div>
     );
   }
