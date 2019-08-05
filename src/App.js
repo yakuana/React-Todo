@@ -1,6 +1,8 @@
 import React from "react";
-import TodoList from "./components/TodoComponents/TodoList"
-import TodoForm from "./components/TodoComponents/TodoForm"
+import "./components/TodoComponents/Todo.css"
+import TodoList from "./components/TodoComponents/TodoList.js";
+import TodoForm from "./components/TodoComponents/TodoForm.js";
+
 
 
 // starter todo array 
@@ -99,7 +101,6 @@ class App extends React.Component {
         <TodoList 
           todoList={this.state.todoList}
           toggleItem={this.toggleItem}
-          clearItems={this.clearItems}
         />
         <TodoForm
          addItem={this.addItem}
