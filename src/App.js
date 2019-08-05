@@ -90,7 +90,7 @@ class App extends React.Component {
     })
   }
 
-  // remove the items that have been completed 
+  // find items that match a given word 
   filterItems = (task) => {
 
      // set the state of the item that matches the id 
@@ -101,7 +101,7 @@ class App extends React.Component {
 
         console.log("item task and task:", item.task, task)
         
-        return item.task.includes(task)
+        return item.task.toLowerCase().includes(task.toLowerCase())
 
       })
     });
@@ -116,11 +116,11 @@ class App extends React.Component {
         <TodoList 
           todoList={this.state.todoList}
           toggleItem={this.toggleItem}
-          clearItems={this.clearItems}
         />
         <TodoForm
          addItem={this.addItem}
          filterItems={this.filterItems} 
+         clearItems={this.clearItems}
          />
       </div>
     );
