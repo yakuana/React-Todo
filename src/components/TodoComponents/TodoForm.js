@@ -32,21 +32,27 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitItem} className="todo-form-container">
-        <input
-          type="text"
-          value={this.state.item}
-          name="item"
-          onChange={this.handleChanges}
-          className="input"
-          placeholder=" ...todo"
-        />
+      <div className="todo-form-container">
+        <form onSubmit={this.submitItem} className="todo-form">
+          <input
+            type="text"
+            value={this.state.item}
+            name="item"
+            onChange={this.handleChanges}
+            className="input"
+            placeholder=" ...todo"
+          />
+
+          <button id="add">Add</button>
+        </form>
 
         <div className="buttons">
-          <button id="add">Add</button>
 
-          {/* filterItems function displays items that match the search word   */}
-          <button onClick={() => {console.log("state at click:", this.state.item); return this.props.filterItems(this.state.item)}} id="add">
+          {/* filterItems function displays items that match the search word */}
+          <button onClick={() => {
+            console.log("state at click:", this.state.item); 
+            return this.props.filterItems(this.state.item)}} 
+            id="add">
               Search
           </button>
 
@@ -55,8 +61,8 @@ class TodoForm extends React.Component {
               Clear Completed 
           </button>
         </div>
-        
-      </form>
+
+      </div>
     );
   }
 }
